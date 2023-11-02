@@ -1,8 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getImage } from "astro:assets"
 import elipseImg from '../resources/images/elipse2.svg';
-const optimizedBackgroundImage = await getImage({ src: elipseImg })
+import IAstro from '../components/icons/iastro.astro';
+import IDocker from '../components/icons/idocker.astro';
+import IGatsby from '../components/icons/igatsby.astro';
+import IJs from '../components/icons/ijs.astro';
+import ILinux from '../components/icons/ilinux.astro';
+import INext from '../components/icons/inext.astro';
+import INode from '../components/icons/inode.astro';
+import IPhp from '../components/icons/iphp.astro';
+import IReact from '../components/icons/ireact.astro';
+import ITs from '../components/icons/its.astro';
+import IWordpress from '../components/icons/iwordpress.astro';
 ---
 
 <Layout title="Rodrigo Antonio Silva Murillo">
@@ -72,6 +81,19 @@ const optimizedBackgroundImage = await getImage({ src: elipseImg })
 				<div class="box-grid grid grid-cols-12 grid-rows-1">
 					<div class="col-span-12 lg:col-span-4 p-6 border-b-[1px] lg:border-r-[1px] lg:border-b-[0px] border-zinc-800">
 						<h3 class="text-white font-bold text-lg w-full px-4 mx-auto text-center">Tecnologías con las que he trabajado</h3>
+						<div class="flex flex-wrap justify-center items-center gap-8 p-10">
+							<span class="text-gray2 hover:text-slate-200"><IAstro w="40" h="40"/></span>
+							<span class="text-gray2 hover:text-slate-200"><IDocker w="40" h="40"/></span>
+							<span class="text-gray2 hover:text-slate-200"><IGatsby w="40" h="40"/></span>
+							<span class="text-gray2 hover:text-slate-200"><IJs w="40" h="40"/></span>
+							<span class="text-gray2 hover:text-slate-200"><ILinux w="40" h="40"/></span>
+							<span class="text-gray2 hover:text-slate-200"><INext w="40" h="40"/></span>
+							<span class="text-gray2 hover:text-slate-200"><INode w="40" h="40"/></span>
+							<span class="text-gray2 hover:text-slate-200"><IPhp w="40" h="40"/></span>
+							<span class="text-gray2 hover:text-slate-200"><IReact w="40" h="40"/></span>
+							<span class="text-gray2 hover:text-slate-200"><ITs w="40" h="40"/></span>
+							<span class="text-gray2 hover:text-slate-200"><IWordpress w="40" h="40"/></span>
+	4				</div>
 					</div>
 					<div class="col-span-12 lg:col-span-8 p-10 border-b-[1px] lg:border-b-[0px] border-zinc-800 bg-cardlinearbg">
 						
@@ -82,13 +104,25 @@ const optimizedBackgroundImage = await getImage({ src: elipseImg })
 			</div>
 
 			<div class="col-grid border-bottom">
-				<div class="box-grid grid grid-cols-12 grid-rows-1">
-					<div class="col-span-12 p-6 ">
-						<div class="rounded-2xl border-zinc-800 border-[1px] p-4 bg-cardbg flex-grow-[1]">
-							<h3 class="text-white font-bold text-xl">Proyecto3</h3>
-							<p class="text-zinc-500 mt-4 font-normal text-sm md:text-base">Descripción del proyecto 3</p>
-						</div>
-					</div>							
+				<div class="box-grid " style={`background-image: url('${elipseImg.src}'); background-position: 12% 16%`}>
+				
+						<div class="p-6 md:py-8 flex flex-wrap gap-4">
+							<h2 class="text-sm  font-bold text-green-500 uppercase w-full">Algunos Proyectos</h2>
+							<div class="rounded-2xl border-zinc-800 border-[1px] p-4 bg-cardbg flex-shrink-[2] flex-grow-[1]">
+								<h3 class="text-white font-bold text-xl">Proyecto1</h3>
+								<p class="text-zinc-500 mt-4 font-normal text-sm md:text-base">Descripción del proyecto 1</p>
+							</div>
+							<div class="rounded-2xl border-zinc-800 border-[1px] p-4 bg-cardbg flex-shrink-[2] flex-grow-[1]">
+								<h3 class="text-white font-bold text-xl">Proyecto2</h3>
+								<p class="text-zinc-500 mt-4 font-normal text-sm md:text-base">Descripción del proyecto 2</p>
+							</div>
+							<div class="rounded-2xl border-zinc-800 border-[1px] p-4 bg-cardbg flex-grow-[1]">
+								<h3 class="text-white font-bold text-xl">Proyecto3</h3>
+								<p class="text-zinc-500 mt-4 font-normal text-sm md:text-base">Descripción del proyecto 3</p>
+							</div>
+						</div>	
+
+
 				</div>
 			</div>
 
