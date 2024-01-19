@@ -25,7 +25,7 @@
   }
 </style>
 
-<script type="module"> 
+<script  is:inline> 
   let card = document.querySelector('div.card3d')
   let shadow = document.querySelector('div.shadow')
   let contain = document.querySelector('div.contain')
@@ -40,8 +40,12 @@
       const rotationY = ((offsetY - halfHeight) / halfHeight) * 15
       const rotationXShadow = ((offsetX - halfWidth) / halfWidth) * 20
       const rotationYShadow = ((offsetY - halfHeight) / halfHeight) * 20
-      contain.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`
-      shadow.style.transform = `rotateX(${rotationYShadow}deg) rotateY(-${rotationXShadow}deg)`
+      if(contain){
+        contain?.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`
+      }
+      if(shadow){
+        shadow?.style.transform = `rotateX(${rotationYShadow}deg) rotateY(-${rotationXShadow}deg)`
+      }
     })
   }
 </script>

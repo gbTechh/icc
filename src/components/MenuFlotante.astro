@@ -7,57 +7,57 @@ const menu = [
   {
     name: "Home",
     path: "/",
-    icon : "",
+    icon: "",
     order: 0
   },
   {
     name: "Artesanía",
     path: "/artesanía",
-    icon : "",
+    icon: "",
     order: 1
   },
   {
     name: "proyectos",
     path: "/proyectos",
-    icon : "",
+    icon: "",
     order: 2
   },
   {
     name: "Contacto",
     path: "/contacto",
-    icon : "",
+    icon: "",
     order: 3
   },
   {
     name: "Github",
     path: "/github",
-    icon : "",
+    icon: "",
     order: 4
   },
   {
     name: "Github",
     path: "/github",
-    icon : "",
+    icon: "",
     order: 5
   },
   {
     name: "Github",
     path: "/github",
-    icon : "",
+    icon: "",
     order: 6
   },
   {
     name: "Github",
     path: "/github",
-    icon : "",
+    icon: "",
     order: 7
   },
-]
+];
 
 const {} = Astro.props;
 ---
 
-<div class="menu w-auto h-auto card3d relative bg-cardbg border-[1px] border-customborder rounded-full  shadow-lime-950 flex  gap-3">
+<div class="menu w-auto h-auto card3d relative bg-cardbg border-[1px] border-customborder rounded-full shadow-lime-950 flex gap-3">
   {
     menu.map(e => (
       <div class="menu-item w-11 h-11 p-1 rounded-full bg-customborder border-t-[0.1px] border-b-[0.1px] border-t-green-900 border-b-customborder flex items-center justify-center relative">
@@ -75,14 +75,16 @@ const {} = Astro.props;
   padding: 10px 10px;
 }
 
-.show{
+.show {
   display: block;
   animation: 0.2s fadein;
 }
-.hidden{
+
+.hidden {
   opacity: 0;
   animation: 0.2s fadeout ease-out;
 }
+
 .menu-item {
   width: 40px;
   height: 40px;
@@ -96,6 +98,7 @@ const {} = Astro.props;
     opacity: 1;
   }
 }
+
 @keyframes fadeout {
   from {
     opacity: 1;
@@ -106,91 +109,81 @@ const {} = Astro.props;
 }
 </style>
 
-<script type="module"> 
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const menu = document.querySelector('.menu');
+    const spans = Array.from(menu?.children || []);
 
-  const menu = document.querySelector('div.menu')
-  const spans = Array.from(menu.children)
+    if (menu) {
+      menu.addEventListener('mousemove', (ev) => {
+        const item = ev.target;
+        if (item && item.classList.contains('menu-item')) {
+          const spanActual = ev.target;
+          const indiceActual = spans.indexOf(spanActual);
 
-  menu.addEventListener('mousemove', (ev) => {  
-    const item = ev.target
-    if(item.classList.contains('menu-item')){
-      
-      const spanActual = ev.target;
-      const indiceActual = spans.indexOf(spanActual);
+          const dosAnteriores = spans.slice(Math.max(indiceActual - 2, 0), indiceActual);
+          const dosPosteriores = spans.slice(indiceActual + 1, indiceActual + 3);
 
-      const dosAnteriores = spans.slice(Math.max(indiceActual - 2, 0), indiceActual);
-      const dosPosteriores = spans.slice(indiceActual + 1, indiceActual + 3);
+          const anterior2 = dosAnteriores[0];
+          const anterior1 = dosAnteriores[1];
+          const posterior1 = dosPosteriores[0];
+          const posterior2 = dosPosteriores[1];
 
-      const anterior2 = dosAnteriores[0]
-      const anterior1 = dosAnteriores[1]
-      const posterior1 = dosPosteriores[0]
-      const posterior2 = dosPosteriores[1]
+          if (anterior2) {
+            anterior2.style.width = `50px`;
+            anterior2.style.height = `50px`;
+            anterior2.style.top = `0px`;
+            anterior2.style.transition = `all 0.4s ease`;
+          }
+          if (anterior1) {
+            anterior1.style.width = `60px`;
+            anterior1.style.height = `60px`;
+            anterior1.style.top = `0px`;
+            anterior1.style.transition = `all 0.3s ease`;
+          }
 
-      if(anterior2){
-        anterior2.style.width = `50px`      
-        anterior2.style.height = `50px`    
-        anterior2.style.top = `0px`    
-        anterior2.style.transition = `all 0.4s ease`
-      }
-      if(anterior1){
-        anterior1.style.width = `60px`      
-        anterior1.style.height = `60px`  
-        anterior1.style.top = `0px` 
-        anterior1.style.transition = `all 0.3s ease`
-      }
+          item.style.width = `70px`;
+          item.style.height = `70px`;
+          item.style.top = `0px`;
+          item.style.top = `0px`;
 
-      item.style.width = `70px`
-      item.style.height = `70px`
-      item.style.top = `0px` 
-      item.style.top = `0px`
+          item.style.zIndex = `20`;
+          item.style.transition = `all 0.3s ease`;
 
-      item.style.zIndex = `20`
-      // item.style.marginLeft = `0.55rem`
-      // item.style.marginRight = `0.55rem`
-      item.style.transition = `all 0.3s ease`
-      // item.parentElement.style.gap = "1.25rem"
-      // item.parentElement.style.transition = "gap 0.4s ease"
+          if (posterior1) {
+            posterior1.style.width = `60px`;
+            posterior1.style.height = `60px`;
+            posterior1.style.top = `0px`;
+            posterior1.style.transition = `all 0.4s ease`;
+          }
+          if (posterior2) {
+            posterior2.style.width = `50px`;
+            posterior2.style.height = `50px`;
+            posterior2.style.top = `0px`;
+            posterior2.style.transition = `all 0.3s ease`;
+          }
 
-      if(posterior1){
-        posterior1.style.width = `60px`      
-        posterior1.style.height = `60px`  
-        posterior1.style.top = `0px`   
-        
-        posterior1.style.transition = `all 0.4s ease`
-      }
-      if(posterior2){
-        posterior2.style.width = `50px`      
-        posterior2.style.height = `50px` 
-        posterior2.style.top = `0px` 
-    
-        posterior2.style.transition = `all 0.3s ease`
-      }
-
-      item.querySelector('span.span-item').classList.add('show')
-      item.querySelector('span.span-item').classList.remove('hidden')
+          item.querySelector('.span-item')?.classList.add('show');
+          item.querySelector('.span-item')?.classList.remove('hidden');
+        }
+      });
     }
-    
-    
-  })
 
-  document.querySelectorAll('.menu-item').forEach(item => {
+    document.querySelectorAll('.menu-item').forEach(item => {
       item.addEventListener('mouseleave', (event) => {
-        item.querySelector('span.span-item').classList.add('hidden')
-        item.querySelector('span.span-item').classList.remove('show')
-   
-      })
-  })
-  menu.addEventListener('mouseleave', (ev) => {     
-    document.querySelectorAll('.menu-item').forEach(item => {      
-      item.style.width = `40px`
-      item.style.height = `40px`
-      item.style.zIndex = `0`
-      
-      item.style.transition = "all 0.4s ease"
-    
-    })
+        item.querySelector('.span-item')?.classList.add('hidden');
+        item.querySelector('.span-item')?.classList.remove('show');
+      });
+    });
 
+    menu?.addEventListener('mouseleave', (ev) => {
+      document.querySelectorAll('.menu-item').forEach(item => {
+        item.style.width = `40px`;
+        item.style.height = `40px`;
+        item.style.zIndex = `0`;
+        item.style.transition = 'all 0.4s ease';
+      });
+    });
   })
-  
-
+ 
 </script>
