@@ -1,0 +1,64 @@
+---
+interface Props {
+	clases?: string;
+  solid?: boolean;
+  bordered?: boolean;
+  color?: string;
+  text?: string;
+  type?: string;
+  href?: string;
+}
+
+const { clases, solid, bordered, color, text, type = 'button', href="" } = Astro.props;
+---
+{
+  type === "button" ? (
+
+    
+      solid ? (
+        <button  class={`flex items-center justify-center p-2 px-4 text-basetextbutton font-nunito text-base border-[1px] border-transparent ${clases && clases} rounded-xl ${color ?? 'bg-primary'} hover:bg-cardbghover hover:text-whitetext transition-colors`}>
+          <slot name="icon-left"/>
+          {text}
+          <slot name="icon-right"/>
+        </button>
+      ) : bordered ?      
+      (
+        <button  class={`flex items-center justify-center p-2 px-4 text-basetextbutton font-nunito text-base border-[1px] border-customborder  ${clases && clases} rounded-xl bg-cardbg hover:bg-cardbghover hover:text-whitetext transition-colors`}>
+          <slot name="icon-left"/>
+          {text}
+          <slot name="icon-right"/>
+        </button>
+      ) : !solid && !bordered &&     
+      (
+        <button  class={`flex items-center justify-center p-2 px-4 text-basetextbutton font-nunito text-base border-[1px] border-transparent ${clases && clases} rounded-xl ${color ?? 'bg-primary'} hover:bg-cardbghover hover:text-whitetext transition-colors`}>
+          <slot name="icon-left"/>
+          {text}
+          <slot name="icon-right"/>
+        </button>
+      )
+    
+
+  ) : (
+        solid ? (
+        <a  href={href} class={`flex items-center justify-center p-2 px-4 text-basetextbutton font-nunito text-base border-[1px] border-transparent ${clases && clases} rounded-xl ${color ?? 'bg-primary'} hover:bg-cardbghover hover:text-whitetext transition-colors`}>
+          <slot name="icon-left"/>
+          {text}
+          <slot name="icon-right"/>
+        </a>
+      ) : bordered ?      
+      (
+        <a  href={href} class={`flex items-center justify-center p-2 px-4 text-basetextbutton font-nunito text-base border-[1px] border-customborder  ${clases && clases} rounded-xl bg-cardbg hover:bg-cardbghover hover:text-whitetext transition-colors`}>
+          <slot name="icon-left"/>
+          {text}
+          <slot name="icon-right"/>
+        </a>
+      ) : !solid && !bordered &&     
+      (
+        <a  href={href} class={`flex items-center justify-center p-2 px-4 text-basetextbutton font-nunito text-base border-[1px] border-transparent ${clases && clases} rounded-xl ${color ?? 'bg-primary'} hover:bg-cardbghover hover:text-whitetext transition-colors`}>
+          <slot name="icon-left"/>
+          {text}
+          <slot name="icon-right"/>
+        </a>
+      )
+  )
+}

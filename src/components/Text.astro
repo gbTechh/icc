@@ -1,0 +1,93 @@
+---
+interface Props {
+	clases?: string;
+  as: string;
+  type: 'title' | 'base' | 'subtitle';
+  weigth?: boolean;
+  color?: string;
+  size?: string;
+}
+
+const { clases, type, as, weigth = "font-normal", color = "text-whitetext", size = "text-base" } = Astro.props;
+---
+{
+  type === "title" && 
+  (
+    as === "h1" ? 
+    (
+      <h1 class={`font-lora ${weigth ? weigth : "font-bold"} ${color ? color : "text-whitetext"} ${size && size} ${clases}`}><slot></slot></h1>
+    ) 
+    : as === "h2" ?      
+    (
+      <h1 class={`font-lora ${weigth ? weigth : "font-bold"} ${color ? color : "text-whitetext"} ${size && size} ${clases}`}><slot></slot></h1>
+    ) 
+    : as === "h3" ? 
+    (
+      <h3 class={`font-lora ${weigth ? weigth : "font-bold"} ${color ? color : "text-whitetext"} ${size && size} ${clases}`}><slot></slot></h3>
+    )
+    : as === "h4" ? 
+    (
+      <h3 class={`font-lora ${weigth ? weigth : "font-bold"} ${color ? color : "text-whitetext"} ${size && size} ${clases}`}><slot></slot></h3>
+    )
+    : as === "h5" ? 
+    (
+      <h3 class={`font-lora ${weigth ? weigth : "font-bold"} ${color ? color : "text-whitetext"} ${size && size} ${clases}`}><slot></slot></h3>
+    )
+    : as === "h6" ? 
+    (
+      <h3 class={`font-lora ${weigth ? weigth : "font-bold"} ${color ? color : "text-whitetext"} ${size && size} ${clases}`}><slot></slot></h3>
+    ) : ""
+    
+  )
+}
+{
+  type === "base" && 
+    (
+      as === "p" ? 
+      (
+        <p class={`font-nunito ${weigth ? weigth : "font-bold"} ${color ? color : "text-basetext"} ${size && size} ${clases}`}><slot></slot></p>
+      )
+      : as === "span" ? 
+      (
+        <span class={`font-nunito ${weigth ? weigth : "font-bold"} ${color ? color : "text-basetext"} ${size && size} ${clases}`}><slot></slot></span>
+      )
+      : ""
+    )
+}
+{
+  type === "subtitle" && 
+  (
+    as === "h1" ? 
+    (
+      <h1 class={`font-quicksand ${weigth ? weigth : "font-bold"} ${color ? color : "text-whitetext"} ${size && size} ${clases}`}><slot></slot></h1>
+    ) 
+    : as === "h2" ?      
+    (
+      <h1 class={`font-quicksand ${weigth ? weigth : "font-bold"} ${color ? color : "text-whitetext"} ${size && size} ${clases}`}><slot></slot></h1>
+    ) 
+    : as === "h3" ? 
+    (
+      <h3 class={`font-quicksand ${weigth ? weigth : "font-bold"} ${color ? color : "text-whitetext"} ${size && size} ${clases}`}><slot></slot></h3>
+    )
+    : as === "h4" ? 
+    (
+      <h3 class={`font-quicksand ${weigth ? weigth : "font-bold"} ${color ? color : "text-whitetext"} ${size && size} ${clases}`}><slot></slot></h3>
+    )
+    : as === "h5" ? 
+    (
+      <h3 class={`font-quicksand ${weigth ? weigth : "font-bold"} ${color ? color : "text-whitetext"} ${size && size} ${clases}`}><slot></slot></h3>
+    )
+    : as === "h6" ? 
+    (
+      <h3 class={`font-quicksand ${weigth ? weigth : "font-bold"} ${color ? color : "text-whitetext"} ${size && size} ${clases}`}><slot></slot></h3>
+    )
+    : as === "p" ? 
+    (
+      <h3 class={`font-quicksand ${weigth ? weigth : "font-bold"} ${color ? color : "text-whitetext"} ${size && size} ${clases}`}><slot></slot></h3>
+    )
+    : as === "span" ? 
+    (
+      <h3 class={`font-quicksand ${weigth ? weigth : "font-bold"} ${color ? color : "text-whitetext"} ${size && size} ${clases}`}><slot></slot></h3>
+    ) : ""
+  )
+}

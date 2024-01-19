@@ -1,0 +1,47 @@
+---
+
+---
+
+<div class="card3d shadow-lg relative">
+  <div class="contain z-20 block relative">
+    <slot />
+  </div>
+  <div class="shadow z-10 rounded-lg"></div>
+</div>
+
+<style>
+  .card3D{
+    perspective: 2000px;
+  }
+  .shadow {
+    width: calc(100% - 2%);
+    height: calc(100% - 2%);
+    top: 10px;
+    left: 0;
+    position: absolute;
+    display: block;
+    background: rgb(4, 22, 17, 0.8);
+    box-shadow: 1px 7px 20px 6px rgb(4, 22, 17, 0.8);
+  }
+</style>
+
+<script type="module"> 
+  let card = document.querySelector('div.card3d')
+  let shadow = document.querySelector('div.shadow')
+  let contain = document.querySelector('div.contain')
+  if(card){
+    const { width, height } = card?.getBoundingClientRect()
+    const halfWidth = width / 2
+    const halfHeight = height / 2
+    
+    card?.addEventListener('mousemove', (event) => {
+      const { offsetX, offsetY } = event
+      const rotationX = ((offsetX - halfWidth) / halfWidth) * 15
+      const rotationY = ((offsetY - halfHeight) / halfHeight) * 15
+      const rotationXShadow = ((offsetX - halfWidth) / halfWidth) * 20
+      const rotationYShadow = ((offsetY - halfHeight) / halfHeight) * 20
+      contain.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`
+      shadow.style.transform = `rotateX(${rotationYShadow}deg) rotateY(-${rotationXShadow}deg)`
+    })
+  }
+</script>
