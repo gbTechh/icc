@@ -41,10 +41,10 @@
       const rotationXShadow = ((offsetX - halfWidth) / halfWidth) * 20
       const rotationYShadow = ((offsetY - halfHeight) / halfHeight) * 20
       if(contain){
-        contain?.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`
+        contain.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`
       }
       if(shadow){
-        shadow?.style.transform = `rotateX(${rotationYShadow}deg) rotateY(-${rotationXShadow}deg)`
+        shadow.style.transform = `rotateX(${rotationYShadow}deg) rotateY(-${rotationXShadow}deg)`
       }
     })
   }
